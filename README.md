@@ -1,34 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center" >
+  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/worldtrip/blob/master/public/logo.svg" width="100%"  />
+</div>
 
-## Getting Started
+<br/>
+<br/>
 
-First, run the development server:
+<h1>📖 worldtrip</h1>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<h2 id="start">📙Sumário</h2>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<ul>
+  <li><a href="#sobre">Sobre o repositório</a></li>
+  <li><a href="#tecs">Tecnologias e bibliotecas utilizadas</a></li>
+  <li><a href="#fim">Considerações finais</a>
+  <li><a href="#creditos">Créditos</a>
+    
+</ul>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<h2 id="sobre">💡 Sobre o repositório</h2>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<div align="center">
+  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/worldtrip/blob/master/public/2.png" width="100%" />
+</div>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+O último desafgio proposto na trilha Ignite de 2021 com objetivo de mostrar os conhecimentos aplicados durante os capítulo; O 
+worldtrip é uma aplicação que consiste em um site onde visualizamos todos os continentes, países e cidades afim de montar um guia turístico. Aqui a interface trabalhada utilizando ChakraUI e aplicando a responsividade.
 
-To learn more about Next.js, take a look at the following resources:
+<div align="center">
+  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/worldtrip/blob/master/public/3.png" width="100%" />
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+<h2 id="tecs">🔨 Tecnologias e bibliotecas utilizadas</h2>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<ul>
+  <li>@chakra-ui/core: ^0.8.0</li>
+  <li>@chakra-ui/react: ^2.2.1</li>
+  <li>@emotion/react: ^11.9.3</li>
+  <li>@emotion/styled: ^11.9.3</li>
+  <li>axios: ^0.27.2</li>
+  <li>framer-motion: ^6.4.2</li>
+  <li>next: 12.2.0</li>
+  <li>react: 18.2.0</li>
+  <li>react-dom: 18.2.0</li>
+  <li>react-query: ^3.39.1</li>
+  <li>swiper: ^8.3.0</li>
+</ul>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<h2 id="fim">👷 Considerações finais</h2>
+
+<h2 id="creditos">👨‍🎓 Créditos</h2>
+
+Especialmente à <a target="_blank" rel="noreferrer" href="https://www.rocketseat.com.br/">Rocketseat</a> pela trilha incrível.
+
+<a href="#start">👆 Voltar ao Sumário</a>
+
+### Autor
+
+---
+
+<a href="https://github.com/Jordaobm" target="_blank">
+ <img src="https://avatars.githubusercontent.com/u/70074016?v=4" width="100px;" alt="Jordão"/>
+ <br />
+ <sub><b>Jordão Beghetto Massariol</b></sub></a> <a href="https://github.com/Jordaobm" title="Jordão">🚀</a>
+
+Feito com ❤️ por Jordão Beghetto Massariol 👋🏽 Entre em contato!
+
+<a href="https://www.linkedin.com/in/jord%C3%A3o-beghetto-massariol-9a9800105/"><img alt="Linkedin" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+
