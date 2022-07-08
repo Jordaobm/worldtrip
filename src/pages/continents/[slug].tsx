@@ -6,13 +6,39 @@ import {
   Heading,
   HStack,
   Image,
-  Tag,
-  Text
+  Skeleton,
+  Text,
+  Tooltip,
+  useMediaQuery
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { CardCity } from "../../components/CardCity";
 import { Header } from "../../components/Header";
-import { Continent } from "../api/allDataContinent";
-import { Tooltip } from "@chakra-ui/react";
-const Continents = (continent: Continent) => {
+import { City } from "../api/allDataContinent";
+const Continents = (props: any) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { data: continent } = useQuery(
+    ["continent"],
+    () =>
+      axios
+        .get(
+          `/api/allDataContinent?${new URLSearchParams({
+            id: props?.slug
+          })}`
+        )
+        ?.then((res) => res?.data),
+    {
+      enabled: !!props?.slug
+    }
+  );
+
+  const [isLargerThan1200] = useMediaQuery("(min-width: 1200px)");
+  const [isLargerThan900] = useMediaQuery("(min-width: 900px)");
+  const [isLargerThan500] = useMediaQuery("(min-width: 500px)");
+
   return (
     <Box>
       <Header goBack />
@@ -24,23 +50,31 @@ const Continents = (continent: Continent) => {
         width="100%"
         height="31.25rem"
       >
-        <Image
-          src={continent?.pathImage}
-          width="100%"
-          height="31.25rem"
-          objectFit="cover"
-          alt={continent?.name}
-          filter="auto"
-          brightness="40%"
-        />
+        <Skeleton isLoaded={!isLoading} width="100%" height="31.25rem">
+          <Image
+            src={continent?.pathImage}
+            width="100%"
+            height="31.25rem"
+            objectFit="cover"
+            alt={continent?.name}
+            filter="auto"
+            brightness="40%"
+            onLoad={() => setIsLoading(false)}
+          />
+        </Skeleton>
+
         <Box
           position="absolute"
-          bottom="3.75rem"
+          bottom={isLargerThan900 ? "3.75rem" : "auto"}
+          textAlign={isLargerThan900 ? "left" : "center"}
           w="100%"
           maxWidth="72.5rem"
           paddingX="1rem"
         >
-          <Heading color="gray.100" fontSize="3rem">
+          <Heading
+            color="gray.100"
+            fontSize={isLargerThan900 ? "3rem" : "2rem"}
+          >
             {continent?.name}
           </Heading>
         </Box>
@@ -52,32 +86,53 @@ const Continents = (continent: Continent) => {
         w="100%"
         maxWidth="72.5rem"
         paddingX="1rem"
+        flexDir={isLargerThan900 ? "row" : "column"}
       >
         <Box
-          w="50%"
+          w={isLargerThan900 ? "50%" : "100%"}
           color="gray.600"
-          fontSize="1.5rem"
-          lineHeight="2.5rem"
+          fontSize={isLargerThan900 ? "1.5rem" : "1rem"}
+          lineHeight={isLargerThan900 ? "2.5rem" : "1.5rem"}
           textAlign="justify"
         >
           {continent?.page?.description}
         </Box>
 
-        <Flex w="50%" align="center" justify="space-between" ml="4.37rem">
+        <Flex
+          w={isLargerThan900 ? "50%" : "100%"}
+          align="center"
+          justify="space-between"
+          ml={isLargerThan900 ? "4.37rem" : "0rem"}
+          mt={isLargerThan900 ? "0rem" : "4.37rem"}
+        >
           <Flex flexDir="column" justify="center" align="center">
-            <Heading fontSize="3rem" color="yellow">
+            <Heading
+              fontSize={isLargerThan500 ? "3rem" : "2rem"}
+              color="yellow"
+            >
               {continent?.page?.contries}
             </Heading>
-            <Text fontSize="1.5rem" color="gray.600" fontWeight="bold">
+            <Text
+              fontSize={isLargerThan500 ? "1.5rem" : "1rem"}
+              color="gray.600"
+              fontWeight="bold"
+            >
               países
             </Text>
           </Flex>
           <Flex flexDir="column" justify="center" align="center">
-            <Heading fontSize="3rem" color="yellow">
+            <Heading
+              fontSize={isLargerThan500 ? "3rem" : "2rem"}
+              color="yellow"
+            >
               {continent?.page?.languages}
             </Heading>
             <HStack spacing="0.2rem">
-              <Text fontSize="1.5rem" color="gray.600" fontWeight="bold">
+              <Text
+                fontSize={isLargerThan500 ? "1.5rem" : "1rem"}
+                color="gray.600"
+                fontWeight="bold"
+              >
                 línguas
               </Text>
 
@@ -87,11 +142,18 @@ const Continents = (continent: Continent) => {
             </HStack>
           </Flex>
           <Flex flexDir="column" justify="center" align="center">
-            <Heading fontSize="3rem" color="yellow">
+            <Heading
+              fontSize={isLargerThan500 ? "3rem" : "2rem"}
+              color="yellow"
+            >
               {continent?.page?.cities?.length}
             </Heading>
             <HStack spacing="0.2rem">
-              <Text fontSize="1.5rem" color="gray.600" fontWeight="bold">
+              <Text
+                fontSize={isLargerThan500 ? "1.5rem" : "1rem"}
+                color="gray.600"
+                fontWeight="bold"
+              >
                 cidades
               </Text>
 
@@ -116,7 +178,15 @@ const Continents = (continent: Continent) => {
       </Flex>
 
       <Grid
-        templateColumns="repeat(4, 1fr)"
+        templateColumns={
+          isLargerThan1200
+            ? "repeat(4, 1fr)"
+            : isLargerThan900
+            ? "repeat(3, 1fr)"
+            : isLargerThan500
+            ? "repeat(2, 1fr)"
+            : "repeat(1, 1fr)"
+        }
         gap={6}
         my="2.5rem"
         marginX="auto"
@@ -124,42 +194,16 @@ const Continents = (continent: Continent) => {
         maxWidth="72.5rem"
         paddingX="1rem"
       >
-        {continent?.page?.cities?.map((city) => {
+        {continent?.page?.cities?.map((city: City) => {
           return (
             <GridItem
               key={city?.cityName}
-              w="16rem"
+              w="100%"
               minH="17.4rem"
               border="1px"
               borderColor="yellow"
             >
-              <Image
-                src={city?.pathImage}
-                w="16rem"
-                h="10rem"
-                alt={city?.cityName}
-              />
-
-              <Flex padding="1.5rem" align="center" justify="space-between">
-                <Box>
-                  <Heading fontSize="1.25rem" color="gray.600">
-                    {city?.cityName}
-                  </Heading>
-                  <Text mt="0.75rem" fontSize="1rem" color="gray.700">
-                    {city?.contryName}
-                  </Text>
-                </Box>
-
-                <Box minW="1.9rem">
-                  <Image
-                    src={city?.contryFlag}
-                    boxSize="1.9rem"
-                    borderRadius="full"
-                    alt={city?.cityName}
-                    objectFit="cover"
-                  />
-                </Box>
-              </Flex>
+              <CardCity city={city} />
             </GridItem>
           );
         })}
@@ -180,16 +224,9 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
   const { slug } = params;
 
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL
-    }/api/allDataContinent?${new URLSearchParams({
-      id: slug
-    })}`
-  );
-
-  const continent = await response.json();
-
   return {
-    props: continent
+    props: {
+      slug
+    }
   };
 }

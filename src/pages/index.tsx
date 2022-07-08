@@ -16,13 +16,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import { useMediaQuery } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { api } from "../services/api";
 import { Continent } from "./api/continents";
-import { useMediaQuery } from "@chakra-ui/react";
 
-
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import { Header } from "../components/Header";
 
 const Home: NextPage = () => {
@@ -34,8 +33,6 @@ const Home: NextPage = () => {
   const [isLargerThan500] = useMediaQuery("(min-width: 500px)");
 
   const router = useRouter();
-
-
 
   return (
     <>

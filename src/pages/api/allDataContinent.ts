@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-interface City {
+export interface City {
   cityName: string;
   contryName: string;
   contryFlag: string;

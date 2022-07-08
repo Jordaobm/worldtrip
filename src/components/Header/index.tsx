@@ -26,15 +26,12 @@ export const Header = ({ goBack }: HeaderProps) => {
         )
       }
 
-      <Link href="/">
-        <Image
-          cursor="pointer"
-          src="/logo.svg"
-          width="12.5rem"
-          height="6.25rem"
-          alt="worldTrip logo"
-        />
-      </Link>
+      <Image
+        src="/logo.svg"
+        width="12.5rem"
+        height="6.25rem"
+        alt="worldTrip logo"
+      />
     </Flex>
   );
 };
