@@ -1,5 +1,5 @@
 <div align="center" >
-  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/worldtrip/blob/master/public/logo.svg" width="100%"  />
+  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/nlw-games-frontend/blob/master/documentation/1.png" width="100%"  />
 </div>
 
 <br/>
@@ -24,7 +24,7 @@
 </div>
 
 
-O último desafgio proposto na trilha Ignite de 2021 com objetivo de mostrar os conhecimentos aplicados durante os capítulo; O 
+O último desafio proposto na trilha Ignite de 2021 com objetivo de mostrar os conhecimentos aplicados durante os capítulo; O 
 worldtrip é uma aplicação que consiste em um site onde visualizamos todos os continentes, países e cidades afim de montar um guia turístico. Aqui a interface trabalhada utilizando ChakraUI e aplicando a responsividade.
 
 <div align="center">
