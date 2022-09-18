@@ -1,5 +1,5 @@
 <div align="center" >
-  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/nlw-games-frontend/blob/master/documentation/1.png" width="100%"  />
+  <img alt="ReactJS" title="ReactJS" src="https://github.com/Jordaobm/worldtrip/blob/master/public/logo.svg" width="100%" />
 </div>
 
 <br/>
